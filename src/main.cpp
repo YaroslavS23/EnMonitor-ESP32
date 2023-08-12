@@ -42,6 +42,5 @@ void loop() {
   float powerFActor     = emon1.powerFactor;      //extract Power Factor into Variable
   float supplyVoltage   = emon1.Vrms;             //extract Vrms into Variable
   float Irms            = emon1.Irms;             //extract Irms into Variable
-
   
 }
