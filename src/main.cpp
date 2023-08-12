@@ -26,7 +26,7 @@ void setup() {
     Serial.println("WiFi connected");
     Serial.println("IP address: ");
     Serial.println(WiFi.localIP());
-
+ 
     delay(500);
 
   emon1.voltage(34, 196.50, 1.7);  // Voltage: input pin, calibration, phase_shift
