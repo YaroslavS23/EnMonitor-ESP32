@@ -96,7 +96,7 @@ void setup() {
 
   ui.attachBuild(build);
   ui.attach(action);
-  ui.start();
+  ui.start("en_monitor");
   ui.enableOTA();
   if (!LittleFS.begin()) Serial.println("FS Error");
   ui.downloadAuto(true);
