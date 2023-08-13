@@ -11,8 +11,9 @@ float powerFactor;
 #define AP_SSID "MERCUSYS_B85E"
 #define AP_PASS "47950450"
 
+#include <LittleFS.h>
 #include <GyverPortal.h>
-GyverPortal ui;
+GyverPortal ui(&LittleFS);
 
 TaskHandle_t Task1, Task2; 
 
@@ -96,7 +97,10 @@ void setup() {
   ui.attachBuild(build);
   ui.attach(action);
   ui.start();
- 
+  ui.enableOTA();
+  if (!LittleFS.begin()) Serial.println("FS Error");
+  ui.downloadAuto(true);
+
   xTaskCreatePinnedToCore(taskCore0,"Task1",10000,NULL,1,&Task1,0);   //Запускаем void taskCore0 на 0-вом ядре
   delay(500); 
   xTaskCreatePinnedToCore(taskCore1,"Task2",10000,NULL,1,&Task2,1);   //Запускаем void taskCore1 на 1-вом ядре
