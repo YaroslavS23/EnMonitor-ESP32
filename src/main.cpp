@@ -96,8 +96,8 @@ void setup() {
 
   ui.attachBuild(build);
   ui.attach(action);
-  ui.start("en_monitor");
-  ui.enableOTA();
+  ui.start("en_monitor"); //en_monitor.locak  в браузере
+  ui.enableOTA();         //en_monitor.locak/ota_update
   if (!LittleFS.begin()) Serial.println("FS Error");
   ui.downloadAuto(true);
 
